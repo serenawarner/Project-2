@@ -16,6 +16,9 @@ Your features should have some unit tests associated with each change.  It may b
 
 Prepare a demo of your app to present.  Create release notes summarizing each feature at the end of development time.
 
+1) code program in python
+2) no/minimal ui/ux
+
  Battleship
 ------------
 Natalie:
