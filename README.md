@@ -15,3 +15,38 @@ The design of your application is up to your team. You can use pair programming 
 Your features should have some unit tests associated with each change.  It may be worth the time to configure your project with GitHub Actions, or other CI/CD tools that will automatically run unit tests, if they offer a free tier.  If someone on your team wants to manually test the app for bugs, they can do this also.  This is typically called manual Regression Testing, which looks for bugs and tries to break things. 
 
 Prepare a demo of your app to present.  Create release notes summarizing each feature at the end of development time.
+
+ Battleship
+------------
+Natalie:
+
+
+Russell:
+
+
+Theo:
+
+
+Noelynn:
+
+
+Serena:
+
+
+start with 2 players, automated if more time 
+
+placeShip(size,location,rotation)
+ - error for if ship already there
+
+drawScoreboard()
+ - round
+
+player class
+ - score
+ - drawMap()
+ - drawHiddenMap()
+
+board class
+ - hit(location, board)
+   - return hit or not
+   - 5 times per round
