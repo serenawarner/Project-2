@@ -1,5 +1,5 @@
-for i in range (25):
-    for i in range (25):
+for i in range (10):
+    for i in range (10):
         print("\U0001f30a", end="")
     print("\n")
 
