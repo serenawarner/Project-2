@@ -21,35 +21,33 @@ Prepare a demo of your app to present.  Create release notes summarizing each fe
 
  Battleship
 ------------
-Natalie:
-
+Natalie and Theo:
+- [] drawMap()
 
 Russell:
-
-
-Theo:
+- [] placeShip(size,location,rotation)
 
 
 Noelynn:
-
+- [] drawScoreboard()
+- [] drawHiddenMap()
 
 Serena:
+- [] hit(x,y)
 
+
+----------------------------------------------------------
 
 start with 2 players, automated if more time 
 
-placeShip(size,location,rotation)
- - error for if ship already there
-
-drawScoreboard()
- - round
-
-player class
- - score
- - drawMap()
- - drawHiddenMap()
+drawScoreboard() - 2 days
+ - rounds
 
 board class
- - hit(location, board)
+ - hit(x,y) - 2 days
    - return hit or not
    - 5 times per round
+ - drawMap() - 3 days
+ - drawHiddenMap() - 2 days
+ - placeShip(size,location,rotation) - 8 days
+   - error for if ship already there
