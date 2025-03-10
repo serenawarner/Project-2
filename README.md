@@ -19,6 +19,7 @@ Prepare a demo of your app to present.  Create release notes summarizing each fe
 1) code program in python
 2) no/minimal ui/ux
 
+
  Battleship
 ------------
 Natalie and Theo:
@@ -26,7 +27,6 @@ Natalie and Theo:
 
 Russell:
 - [] placeShip(size,location,rotation)
-
 
 Noelynn:
 - [] drawScoreboard()
