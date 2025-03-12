@@ -26,14 +26,17 @@ Natalie and Theo:
 - [] drawMap()
 
 Russell:
-- [] placeShip(size,location,rotation)
+- [x] placeShip(size,location,rotation)
 
 Noelynn:
-- [] drawScoreboard()
+- [x] drawScoreboard()
 - [] drawHiddenMap()
 
 Serena:
-- [] hit(x,y)
+- [x] hit(x,y)
+
+Khaliff
+- [] accommodate
 
 
 ----------------------------------------------------------
