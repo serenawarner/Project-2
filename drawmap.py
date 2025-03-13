@@ -6,7 +6,7 @@ class board:
         for i in range(0,len(self.map)):
             for j in range(0, len(self.map)):
                 if h == False:
-                    self.map[i][j] = "\U0001f30a"
+                    self.map[i][j] = "🌊"
                 else:
                     self.map[i][j] = "◼️ "
         
