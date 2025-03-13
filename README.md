@@ -23,14 +23,14 @@ Prepare a demo of your app to present.  Create release notes summarizing each fe
  Battleship
 ------------
 Natalie and Theo:
-- [] drawMap()
+- [x] drawMap()
 
 Russell:
 - [x] placeShip(size,location,rotation)
 
 Noelynn:
 - [x] drawScoreboard()
-- [] drawHiddenMap()
+- [x] drawHiddenMap()
 
 Serena:
 - [x] hit(x,y)
