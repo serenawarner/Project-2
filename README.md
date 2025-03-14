@@ -36,7 +36,7 @@ Serena:
 - [x] hit(x,y)
 
 Khaliff
-- [] accommodate
+- [] ship class
 
 
 ----------------------------------------------------------
@@ -54,3 +54,6 @@ board class
  - drawHiddenMap() - 2 days
  - placeShip(size,location,rotation) - 8 days
    - error for if ship already there
+
+ship class
+ - place
