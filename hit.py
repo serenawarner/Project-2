@@ -3,6 +3,7 @@ import random
 EMPTY_SYMBOL = "🌊"  # Water
 SHIP_SYMBOL = "🚢"  # ship
 HIT_SYMBOL = "💥" # explosion
+MISS_SYMBOL = "❌" # miss
 
 class ship:
 
