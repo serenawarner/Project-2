@@ -3,6 +3,7 @@ import random
 EMPTY_SYMBOL = "🌊"  # Water
 SHIP_SYMBOL = "🚢"  # ship
 HIT_SYMBOL = "💥" # explosion
+HIDDEN_SYMBOL = "◼️ "
 
 class ship:
 
@@ -13,11 +14,11 @@ class ship:
 
     def hit(self):
         # if in x,y area of ship then return true
+        return True
 
 
 class board:
     map = []
-    hidden_map = []
     size = 10
 
     def __init__(self):
@@ -25,10 +26,21 @@ class board:
             self.map.append([])
             for j in range(self.size):
                 self.map[i].append(EMPTY_SYMBOL)
+        
+    def drawmap(self):
         for i in range(self.size):
-            self.hidden_map.append([])
             for j in range(self.size):
-                self.hidden_map[i].append(EMPTY_SYMBOL)
+                print(self.map[i][j],end="")
+            print()
+
+    def drawhidden(self):
+        for i in range(self.size):
+            for j in range(self.size):
+                if self.map[i][j] == EMPTY_SYMBOL or self.map[i][j] == SHIP_SYMBOL:
+                    print(HIDDEN_SYMBOL,end="")
+                else:
+                    print(HIT_SYMBOL,end="")
+            print()
 
     def place_ship(self, ship_size):
         """Randomly places a ship on the map."""
@@ -38,7 +50,7 @@ class board:
                 self.map[x][y] = SHIP_SYMBOL
                 break
 
-    def hit(self,x,y):
+    def hit(self,array,x,y):
         if x > 9 or x < 0 or y > 9 or y < 0:
             print("Coordinates out of range")
             return None
@@ -51,18 +63,12 @@ class board:
         else: 
             return False
         
-    def printMap(self):
-        for i in range(len(self.map)):
-            print(self.map[i])
+    def printmap(self):
+        print(self.map)
     
 
 board1 = board()
 
-for i in range(3):
-    board1.place_ship(1)
-    board1.place_ship(2)
-    board1.place_ship(3)
+board1.drawmap()
 
-
-board1.printMap()
-        
+board1.drawhidden()
