@@ -6,34 +6,34 @@ SHIP_SYMBOL = "🚢"  # ship
 HIT_SYMBOL = "💥" # explosion
 HIDDEN_SYMBOL = "◼️ " # cover
 
-class Board:
-    size = 10
+class board:
      
-    map = [[" ", " ", " ", " ", " "], [" ", " ", " ", " ", " "], [" ", " ", " ", " ", " "], [" ", " ", " ", " ", " "], [" ", " ", " ", " ", " "]]
+    map = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "], 
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+           ]
 
     def __init__(self, h):
         for i in range(0,len(self.map)):
             for j in range(0, len(self.map)):
-                if h == False:
+                if h == False: # if not hidden
                     self.map[i][j] = "🌊"
-                else:
+                else: # if
                     self.map[i][j] = "◼️ "
         
-    def draw_map(self):
+    def drawmap(self):
         for i in range(len(self.map)):
             printstring = ""
             for j in self.map[i]:
                 printstring = printstring + j
             print(printstring)
-
-    def draw_hidden(self):
-        for i in range(self.size):
-            for j in range(self.size):
-                if self.map[i][j] == EMPTY_SYMBOL or self.map[i][j] == SHIP_SYMBOL:
-                    print(HIDDEN_SYMBOL,end="")
-                else:
-                    print(HIT_SYMBOL,end="")
-            print()
 
     def place_ship(self, ship_size):
         """Randomly places a ship on the map."""
