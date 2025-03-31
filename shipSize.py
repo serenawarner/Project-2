@@ -1,29 +1,19 @@
-from random import randint as r
 class shipSize:
 
-    def __init__(self, rotation, x):
-        self.size = size
-        self.rotation = rotation
-        self.x = x
-        self.y = y
+    def __init__(self, size, x, y, horizontal=True):
+        self.size = size # Number of grid spaces the ship takes up
+        self.x = x # Starting x coords
+        self.y = y # Starting y coords
+        self.horizontal = horizontal # True if horizontal, False if vertical
+        self.positions = self.calc_positions() # Stores occupied positions
 
-    def place_varied_ship(self):
-        """Randomly places a ship on the map."""
-        while True:
-            # TODO:
-            # ADD an array full of different sizes (e.g. ship_size = [(1,3), (1,5), (1,3)] )
-            # CHECK placement is not out-of-bounds; if clause
-            # ADD rotation of ship; 0 is vertical, 1 is horizontal 
-            # CHECK bounds again 
-
-            ship_size = [(1, r(1,5))]
-            x, y = (0, self.size - 1), random.randint(0, self.size - 1)
-            if self.hidden_map[x][y] == EMPTY_SYMBOL:  # Ensure ship isn't placed on another
-                if # Ensure the ship fits within bounds
-                self.hidden_map[x][y] == SHIP_SYMBOL
-                break
-
-    def hit(self):
-        if in (x,y) of shipSize:
-            return True for hit
-            Place
+    def calc_positions(self):
+        """Calculates the coordinates occupied by the ship, with orientation"""
+        return [(self.x + i, self.y) if self.horizontal else (self.x, self.y + i) for i in range(self.size)]
+    
+    def is_hit(self, x, y):
+        """Check if collected coordinates connect"""
+        return (x,y) in self.positions
+    
+    def checker(self):
+        return f"Ship(size ={self.size}, positions ={self.positions})"
