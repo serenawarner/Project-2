@@ -6,7 +6,7 @@ SHIP_SYMBOL = "🚢"  # ship
 HIT_SYMBOL = "💥" # explosion
 HIDDEN_SYMBOL = "◼️ " # cover
 
-class board:
+class Board:
      
     map = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
            [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
