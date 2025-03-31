@@ -1,20 +1,44 @@
 import random
+from ship import Ship
 
 EMPTY_SYMBOL = "🌊"  # Water
 SHIP_SYMBOL = "🚢"  # ship
 HIT_SYMBOL = "💥" # explosion
 HIDDEN_SYMBOL = "◼️ "
 
-class ship:
+# KHALIFF: Trying a new organization method...
+# class shipSize:
 
-    def __init__(self, size, rotation, x, y):
-        self.size = size
-        self.x = x
-        self.y = y
+#     def __init__(self, size, x, y, horizontal=True):
+#         self.size = size # Number of grid spaces the ship takes up
+#         self.x = x # Starting x coords
+#         self.y = y # Starting y coords
+#         self.horizontal = horizontal # True if horizontal, False if vertical
+#         self.positions = self.calc_positions() # Stores occupied positions
 
-    def hit(self):
-        # if in x,y area of ship then return true
-        return True
+#     def calc_positions(self):
+#         """Calculates the coordinates occupied by the ship, with orientation"""
+#         return [(self.x + i, self.y) if self.horizontal else (self.x, self.y + i) for i in range(self.size)]
+    
+#     def is_hit(self, x, y):
+#         """Check if collected coordinates connect"""
+#         return (x,y) in self.positions
+
+# class ship:
+
+#     def __init__(self, size, horizontal, x, y):
+#         self.size = size
+#         self.x = x
+#         self.y = y
+#         self.horizontal = horizontal
+#         self.ship_object = size_ship(size, x, y, horizontal)
+
+#     def hit(self, x, y):
+#         # if in x,y area of ship then return true
+#         # return True
+    
+#         # KHALIFF: for my new thing, it'll need a little different processing of the information, looking at the object now
+#         return self.ship_object.is_hit(x, y)
 
 
 class board:
@@ -46,9 +70,19 @@ class board:
         """Randomly places a ship on the map."""
         while True:
             x, y = random.randint(0, self.size - 1), random.randint(0, self.size - 1)
-            if self.map[x][y] == EMPTY_SYMBOL:  # Ensure ship isn't placed on another
-                self.map[x][y] = SHIP_SYMBOL
-                break
+            horizontal = random.choice([True, False]) # Randomized orientation boolean
+            new_ship = Ship(ship_size, horizontal, x, y)
+
+            # KHALIFF: Check if within x & y boundary, then For Loop to check for overlap
+            if (0 <= pos[0] < self.size and 0 <= pos[1] < self.size for pos in new_ship.ship_object.positions): 
+                if (self.map[pos[0]][pos[1]] == EMPTY_SYMBOL for pos in new_ship.ship_object.positions):
+                    for pos in new_ship.ship_object.positions:
+                        self.map[pos[0]][pos[1]] = SHIP_SYMBOL
+                    break
+
+            # if self.map[x][y] == EMPTY_SYMBOL:  # Ensure ship isn't placed on another
+                # self.map[x][y] = SHIP_SYMBOL
+                # break
 
     def hit(self,array,x,y):
         if x > 9 or x < 0 or y > 9 or y < 0:
@@ -56,7 +90,6 @@ class board:
             return None
         
         if (self.map[x][y] == SHIP_SYMBOL) :
-            
             self.map[x][y] = HIT_SYMBOL
 
             return True
