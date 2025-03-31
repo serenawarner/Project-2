@@ -15,9 +15,9 @@ class board:
     def __init__(self, h):
         for i in range(0,len(self.map)):
             for j in range(0, len(self.map)):
-                if h == False:
+                if h == False: # if not hidden
                     self.map[i][j] = "🌊"
-                else:
+                else: # if
                     self.map[i][j] = "◼️ "
         
     def drawmap(self):

@@ -7,6 +7,8 @@ HIT_SYMBOL = "💥" # explosion
 HIDDEN_SYMBOL = "◼️ " # cover
 
 class Board:
+
+    ships = []
      
     map = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
            [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
@@ -38,14 +40,15 @@ class Board:
     def place_ship(self, ship_size):
         """Randomly places a ship on the map."""
         while True:
-            x, y = random.randint(0, self.size - 1), random.randint(0, self.size - 1)
+            x, y = random.randint(0, len(self.map) - 1), random.randint(0, len(self.map) - 1)
+            pos = [x,y]
             horizontal = random.choice([True, False]) # Randomized orientation boolean
             new_ship = Ship(ship_size, horizontal, x, y)
 
             # KHALIFF: Check if within x & y boundary, then For Loop to check for overlap
             if (0 <= pos[0] < self.size and 0 <= pos[1] < self.size for pos in new_ship.ship_object.positions): 
                 if (self.map[pos[0]][pos[1]] == EMPTY_SYMBOL for pos in new_ship.ship_object.positions):
-                    for pos in new_ship.ship_object.positions:
+                    for posi in new_ship.ship_object.positions:
                         self.map[pos[0]][pos[1]] = SHIP_SYMBOL
                     self.ships.append(new_ship)
                     break
@@ -56,3 +59,4 @@ class Board:
                 self.map[x][y] = HIT_SYMBOL
                 return True
         return False
+    
