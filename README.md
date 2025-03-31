@@ -54,3 +54,5 @@ board class
  - drawHiddenMap() - 2 days
  - placeShip(size,location,rotation) - 8 days
    - error for if ship already there
+
+*wow*
