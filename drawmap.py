@@ -1,25 +1,16 @@
 class board:
-     
-    map = [[" ", " ", " ", " ", " "], [" ", " ", " ", " ", " "], [" ", " ", " ", " ", " "], [" ", " ", " ", " ", " "], [" ", " ", " ", " ", " "]]
-
-    def __init__(self, h):
-        for i in range(0,len(self.map)):
-            for j in range(0, len(self.map)):
-                if h == False:
-                    self.map[i][j] = "🌊"
-                else:
-                    self.map[i][j] = "◼️ "
-        
-    def drawmap(self):
-        for i in range(len(self.map)):
-            printstring = ""
-            for j in self.map[i]:
-                printstring = printstring + j
-            print(printstring)
+    def drawmap():
+        pass
 
 
-hiddenboard = board(True)
-hiddenboard.drawmap()
+#whether or not it was hit and is there a ship piece there?
+hit = '0'
+ship = '0'
+space = [hit,ship]
+rows, cols = (10, 10)
 
-visibleboard = board(False)
-visibleboard.drawmap()
+#initialize space for each element in col then repeat in with rows
+arr = [[space for i in range(cols)] for j in range(rows)]
+
+for row in arr:
+    print(row)
