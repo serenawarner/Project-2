@@ -29,7 +29,3 @@ class Scoreboard:
     def get_opponent(self):
         """Switches between the 2 players ."""
         return "Player 1" if self.current_turn == "Player 2" else "Player 2"
-
-    def start_game(self):
-        while self.take_turn():
-            pass
