@@ -80,3 +80,21 @@ Focus Group 3:
 - when a player shoots and hits one of their opponent's ships, it should mark it on the map that tracks their attempted shots. when one of a player's ships is hit, that section of the ship should be marked on the map.
 - each player gets 5 attempts to hit their opponent's ships per turn. on a 10 x 10 board, this caps the game's length at a worst-case maximum of 20 turns per player, making gameplay short and engaging
 - the winner is the first player to successfully sink all of their opponent's ships
+
+## code documentation
+
+### board
+
+each board is managed via a Board class. this class contains a map, which is an array of arrays. this structure allows for coordinates to be entered in the form of "map[x][y]", where x and y correspond to the targeted coordinate to the user and a specific item in a specific subarray to the computer.
+
+the board, when initialized, takes a variable called "h", which determines whether the location of the ships is visible on the board. if h is true, then the ships will be hidden and only the explosions will be shown on hit ships. this function enables the drawmap() function to create both hidden boards to track the opponent's map and visible ones for a player to track their own ships.
+
+each coordinate on the board is represented as a string filled by an emoji. the possible coordinate states are as follows:
+
+  empty space on the visible map = "🌊"  
+  ship location on the visible map = "🚢"  
+  ship section that has been hit on the visible map *or* successful shot on the hidden map = "💥" 
+  unknown coordinate on the hidden map = "◼️ "
+  unsuccessful shot on the hidden map = "❌" 
+
+

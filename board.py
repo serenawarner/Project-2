@@ -5,6 +5,7 @@ EMPTY_SYMBOL = "🌊"  # Water
 SHIP_SYMBOL = "🚢"  # ship
 HIT_SYMBOL = "💥" # explosion
 HIDDEN_SYMBOL = "◼️ " # cover
+MISS_SYMBOL = "❌" # miss
 
 class Board:
 
