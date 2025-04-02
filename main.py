@@ -2,20 +2,23 @@ from board import Board
 from scoreboard import Scoreboard
 from random import choice as randch
 
-def start_game(self):
-        while self.take_turn():
-            pass 
 
 def main():
-    hidden_board = Board(True)
-    board = Board(False)
+    hidden_board1 = Board(True)
+    board1 = Board(False)
+    
+    hidden_board2 = Board(True)
+    board2 = Board(False)
+
+
     ship_place_amount = 5
     # Randomly place ships
     ship_sizes_list = [2, 3, 3, 4, 5]
     for _ in range(ship_place_amount):
-        board.place_ship(randch(ship_sizes_list))
+        board1.place_ship(randch(ship_sizes_list))
     
-    hidden_board.drawmap()
+    hidden_board2.drawmap()
+    board1.drawmap()
 
     game = Scoreboard()
     game.start_game()
@@ -24,8 +27,8 @@ def main():
 if __name__ == "__main__":
     main()
 
-    # hiddenboard = board(True)
-    # hiddenboard.drawmap()
+    hiddenboard = Board(True)
+    hiddenboard.drawmap()
 
-    # visibleboard = board(False)
-    # visibleboard.drawmap()
+    visibleboard = Board(False)
+    visibleboard.drawmap()
