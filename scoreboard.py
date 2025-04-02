@@ -9,6 +9,7 @@ class Scoreboard:
         opponent = self.get_opponent()
         print(f"\n{self.current_turn}'s turn! {opponent} has {self.ships[opponent]} ships left.")
 
+        # print maps here
         # Here we can get the input x,y coords to attack
 
         if random.choice(["hit", "miss"]) == "hit":
