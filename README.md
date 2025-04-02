@@ -23,7 +23,7 @@ Prepare a demo of your app to present.  Create release notes summarizing each fe
  Battleship
 ------------
 Natalie and Theo:
-- [] drawMap()
+- [x] drawMap()
 
 Russell:
 - [x] placeShip(size,location,rotation)
@@ -72,3 +72,11 @@ Take_Turn needs to be reworked
 Focus Group 3:
 - Force ships to print next to each other (make code recognize ship as new class)
 - Start_Game needs its own file and init process
+
+## how to play battleship
+
+- both players place ships on a 10 x 10 grid. ships have different lengths and can be either horizontal or vertical
+- each player can see a map of where their own ships are, as well as a map that displays where they have already attempted to shoot and whether or not they hit a ship in that location, in order to track where their opponent's ships might be
+- when a player shoots and hits one of their opponent's ships, it should mark it on the map that tracks their attempted shots. when one of a player's ships is hit, that section of the ship should be marked on the map.
+- each player gets 5 attempts to hit their opponent's ships per turn. on a 10 x 10 board, this caps the game's length at a worst-case maximum of 20 turns per player, making gameplay short and engaging
+- the winner is the first player to successfully sink all of their opponent's ships
