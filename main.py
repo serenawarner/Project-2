@@ -23,9 +23,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    # hiddenboard = board(True)
-    # hiddenboard.drawmap()
-
-    # visibleboard = board(False)
-    # visibleboard.drawmap()
