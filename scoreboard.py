@@ -1,3 +1,4 @@
+import random
 from board import Board
 import random
 
