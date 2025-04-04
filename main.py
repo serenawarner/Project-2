@@ -2,10 +2,11 @@ from board import Board
 from scoreboard import Scoreboard
 from random import choice as randch
 
-def start_game():
-    pass
+
 
 def main():
+    game = Scoreboard()
+    game.start_game()
     hidden_board1 = Board(True)
     board1 = Board(False)
     
