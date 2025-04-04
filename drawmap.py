@@ -1,0 +1,39 @@
+from time import sleep as wait
+
+class board:
+     
+    map = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "], 
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+           ]
+
+    def __init__(self, h):
+        for i in range(0,len(self.map)):
+            for j in range(0, len(self.map)):
+                if h == False: # if not hidden
+                    self.map[i][j] = "🌊"
+                else: # if
+                    self.map[i][j] = "◼️ "
+        
+    def drawmap(self):
+        for i in range(len(self.map)):
+            printstring = ""
+            for j in self.map[i]:
+                printstring = printstring + j
+                wait(0.1)
+            print(printstring)
+            wait(0.1)
+
+
+hiddenboard = board(True)
+hiddenboard.drawmap()
+
+visibleboard = board(False)
+visibleboard.drawmap()

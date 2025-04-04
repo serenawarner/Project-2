@@ -1,6 +1,7 @@
 from board import Board
 from scoreboard import Scoreboard
 from random import choice as randch
+from time import sleep as wait
 
 
 
