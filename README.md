@@ -73,13 +73,21 @@ Focus Group 3:
 - Force ships to print next to each other (make code recognize ship as new class)
 - Start_Game needs its own file and init process
 
-## how to play battleship
+
+
+# how to play battleship
 
 - both players place ships on a 10 x 10 grid. ships have different lengths and can be either horizontal or vertical
 - each player can see a map of where their own ships are, as well as a map that displays where they have already attempted to shoot and whether or not they hit a ship in that location, in order to track where their opponent's ships might be
 - when a player shoots and hits one of their opponent's ships, it should mark it on the map that tracks their attempted shots. when one of a player's ships is hit, that section of the ship should be marked on the map.
 - each player gets 5 attempts to hit their opponent's ships per turn. on a 10 x 10 board, this caps the game's length at a worst-case maximum of 20 turns per player, making gameplay short and engaging
 - the winner is the first player to successfully sink all of their opponent's ships
+
+# documentation
+
+## installation and use
+
+download the folder of files. run "python main.py" ("python" might be "python3" depending on OS and version) in the command line.
 
 ## code documentation
 
@@ -94,7 +102,14 @@ each coordinate on the board is represented as a string filled by an emoji. the 
   empty space on the visible map = "🌊"  
   ship location on the visible map = "🚢"  
   ship section that has been hit on the visible map *or* successful shot on the hidden map = "💥" 
-  unknown coordinate on the hidden map = "◼️ "
+  unknown coordinate on the hidden map = "◼️"
+  
   unsuccessful shot on the hidden map = "❌" 
 
+### ship
 
+every ship has a length, an (x,y) coordinate that marks its starting place, and a boolean that determines whether the ship is horizontal or vertical. 
+
+the Ship class contains a function that determines whether the ship is hit by taking an (x,y) coordinate and checking whether there is a ship at that location by calculating the length and direction of the ship relative to its starting coordinate, called hit(x,y)
+
+the ship has a secondary class that contains some of its locational information called ShipSize. This class contains a few utility functions that assist in calculation for the Ship class.
