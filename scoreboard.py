@@ -1,5 +1,6 @@
 import random
 from board import Board
+import random
 
 class Scoreboard:
     def __init__(self):
