@@ -34,5 +34,26 @@ class Scoreboard:
         return "Player 1" if self.current_turn == "Player 2" else "Player 2"
 
     def start_game(self):
-        while self.take_turn():
-            pass
+        """Start the game and alternate turns between players."""
+        while True:
+            # Player 1's turn
+            print("\nPlayer 1's Turn:")
+            print("Player 1's Board:")
+            self.board1.drawmap()
+            print("\nPlayer 2's Hidden Board:")
+            self.hidden_board2.drawmap()
+
+            if not self.take_turn(self.board2, self.hidden_board2):
+                print("Player 1 Wins!")
+                break
+
+            # Player 2's turn
+            print("\nPlayer 2's Turn:")
+            print("Player 2's Board:")
+            self.board2.drawmap()
+            print("\nPlayer 1's Hidden Board:")
+            self.hidden_board1.drawmap()
+
+            if not self.take_turn(self.board1, self.hidden_board1):
+                print("Player 2 Wins!")
+                break
