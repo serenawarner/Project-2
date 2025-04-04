@@ -9,6 +9,8 @@ HIDDEN_SYMBOL = "◼️ " # cover
 class Board:
 
     ships = []
+
+    size : int = 0
      
     map = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
            [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
@@ -23,6 +25,8 @@ class Board:
            ]
 
     def __init__(self, h):
+        self.size = len(self.map)
+        
         for i in range(0,len(self.map)):
             for j in range(0, len(self.map)):
                 if h == False: # if not hidden
