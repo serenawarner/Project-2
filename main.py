@@ -5,9 +5,9 @@ from random import choice as randch
 
 
 def main():
-    #game = Scoreboard()
-    #game.start_game()
-    #hidden_board1 = Board(True)
+    game = Scoreboard()
+    game.start_game()
+    hidden_board1 = Board(True)
     board1 = Board(False)
     
     hidden_board2 = Board(True)
