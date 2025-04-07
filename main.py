@@ -6,11 +6,10 @@ from random import choice as randch
 
 def main():
     game = Scoreboard()
-    game.start_game()
-    hidden_board1 = Board(True)
+    hiddenb1 = Board(True)
     board1 = Board(False)
     
-    hidden_board2 = Board(True)
+    hiddenb2 = Board(True)
     board2 = Board(False)
 
 
@@ -19,12 +18,8 @@ def main():
     ship_sizes_list = [2, 3, 3, 4, 5]
     for _ in range(ship_place_amount):
         board1.place_ship(randch(ship_sizes_list))
-    
-    hidden_board2.drawmap()
-    board1.drawmap()
 
-    game = Scoreboard()
-    game.start_game()
+    game.start_game(board1, hiddenb1, board2, hiddenb2)
 
 
 if __name__ == "__main__":

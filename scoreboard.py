@@ -1,38 +1,41 @@
-import random
 from board import Board
 import random
 
 class Scoreboard:
     def __init__(self):
+        self.p1Score = 0
+        self.p2Score = 0
         self.ships = {"Player 1": 5, "Player 2": 5}
         self.current_turn = "Player 1"
-        self.board1 = Board(False)  # Player 1's visible board
-        self.hidden_board1 = Board(True)  # Player 1's hidden board
-        self.board2 = Board(False)  # Player 2's visible board
-        self.hidden_board2 = Board(True)  # Player 2's hidden board
 
-    def start_game(self):
+    def printScores(self):
+        print("Player 1 Score:", self.p1Score)
+        print("Player 2 Score:", self.p2Score)
+
+    def start_game(self, board1, hiddenb1, board2, hiddenb2):
         """Start the game and alternate turns between players."""
         while True:
             # Player 1's turn
+            self.printScores()
             print("\nPlayer 1's Turn:")
             print("Player 1's Board:")
-            self.board1.drawmap()
+            board1.drawmap()
             print("\nPlayer 2's Hidden Board:")
-            self.hidden_board2.drawmap()
+            hiddenb2.drawmap()
 
-            if not self.take_turn(self.board2, self.hidden_board2):
+            if not self.take_turn(board2, hiddenb2):
                 print("Player 1 Wins!")
                 break
-
+            
             # Player 2's turn
+            self.printScores()
             print("\nPlayer 2's Turn:")
             print("Player 2's Board:")
-            self.board2.drawmap()
+            board2.drawmap()
             print("\nPlayer 1's Hidden Board:")
-            self.hidden_board1.drawmap()
+            hiddenb1.drawmap()
 
-            if not self.take_turn(self.board1, self.hidden_board1):
+            if not self.take_turn(board1, hiddenb1):
                 print("Player 2 Wins!")
                 break
 
@@ -56,6 +59,10 @@ class Scoreboard:
         if opponent_board.hit(x, y):
             print(f"{self.current_turn} scored a HIT! {opponent} loses 1 ship.")
             self.ships[opponent] -= 1
+            if self.current_turn == "Player 1":
+                self.p1Score+=1 # player 1 score up 1
+            else:
+                self.p2Score+=1 # player 2 score up 1
 
             if self.ships[opponent] == 0:
                 print(f"\n{self.current_turn} wins! {opponent} has lost all ships!")
@@ -70,28 +77,4 @@ class Scoreboard:
         """Switches between the 2 players."""
         return "Player 1" if self.current_turn == "Player 2" else "Player 2"
 
-    def start_game(self):
-        """Start the game and alternate turns between players."""
-        while True:
-            # Player 1's turn
-            print("\nPlayer 1's Turn:")
-            print("Player 1's Board:")
-            self.board1.drawmap()
-            print("\nPlayer 2's Hidden Board:")
-            self.hidden_board2.drawmap()
-
-            if not self.take_turn(self.board2, self.hidden_board2):
-                print("Player 1 Wins!")
-                break
-
-            # Player 2's turn
-            print("\nPlayer 2's Turn:")
-            print("Player 2's Board:")
-            self.board2.drawmap()
-            print("\nPlayer 1's Hidden Board:")
-            self.hidden_board1.drawmap()
-
-            if not self.take_turn(self.board1, self.hidden_board1):
-                print("Player 2 Wins!")
-                break
 

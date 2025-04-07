@@ -64,3 +64,5 @@ class Board:
                 return True
         return False
     
+board1 = Board(False)
+board1.drawmap()
