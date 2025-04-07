@@ -34,11 +34,11 @@ download the folder of files. run "python main.py" ("python" might be "python3" 
 
 ### board
 
-each board is managed via a Board class. this class contains a map, which is an array of arrays. this structure allows for coordinates to be entered in the form of "map[x][y]", where x and y correspond to the targeted coordinate to the user and a specific item in a specific subarray to the computer.
+Each board is managed via a Board class. This class contains a map, which is an array of arrays. This structure allows for coordinates to be entered in the form of "map[x][y]", where x and y correspond to the targeted coordinate to the user and a specific item in a specific subarray to the computer.
 
-the board, when initialized, takes a variable called "h", which determines whether the location of the ships is visible on the board. if h is true, then the ships will be hidden and only the explosions will be shown on hit ships. this function enables the drawmap() function to create both hidden boards to track the opponent's map and visible ones for a player to track their own ships.
+The board, when initialized, takes a variable called "h", which determines whether the location of the ships is visible on the board. If h is true, then the ships will be hidden and only the explosions will be shown on hit ships. This function enables the drawmap() function to create both hidden boards to track the opponent's map and visible ones for a player to track their own ships.
 
-each coordinate on the board is represented as a string filled by an emoji. the possible coordinate states are as follows:
+Each coordinate on the board is represented as a string filled by an emoji. The possible coordinate states are as follows:
 
   empty space on the visible map = "🌊"  
   ship location on the visible map = "🚢"  
@@ -49,8 +49,8 @@ each coordinate on the board is represented as a string filled by an emoji. the 
 
 ### ship
 
-every ship has a length, an (x,y) coordinate that marks its starting place, and a boolean that determines whether the ship is horizontal or vertical. 
+Every ship has a length, an (x,y) coordinate that marks its starting place, and a boolean that determines whether the ship is horizontal or vertical. 
 
-the Ship class contains a function that determines whether the ship is hit by taking an (x,y) coordinate and checking whether there is a ship at that location by calculating the length and direction of the ship relative to its starting coordinate, called hit(x,y)
+The Ship class contains a function that determines whether the ship is hit by taking an (x,y) coordinate and checking whether there is a ship at that location by calculating the length and direction of the ship relative to its starting coordinate, called hit(x,y)
 
-the ship has a secondary class that contains some of its locational information called ShipSize. This class contains a few utility functions that assist in calculation for the Ship class.
+The ship has a secondary class that contains some of its locational information called ShipSize. This class contains a few utility functions that assist in calculation for the Ship class.
