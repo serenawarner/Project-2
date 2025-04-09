@@ -10,27 +10,16 @@ class Board:
 
     ships = []
 
-    size : int = 0
-     
-    map = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "], 
-           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-           [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
-           ]
+    def __init__(self, is_hidden):
+        self.size = 10
+        self.hidden = is_hidden
+        self.map = [["" for _ in range(self.size)] for _ in range(self.size)]
+        self.ships = []
 
-    def __init__(self, h):
-        self.size = len(self.map)
-        
         for i in range(0,len(self.map)):
             for j in range(0, len(self.map)):
-                if h == False: # if not hidden
-                    self.map[i][j] = "🌊"
+                if is_hidden == False: # if not hidden
+                    self.map[i][j] = "🌊 "
                 else: # if
                     self.map[i][j] = "◼️ "
         
@@ -50,12 +39,13 @@ class Board:
             new_ship = Ship(ship_size, horizontal, x, y)
 
             # KHALIFF: Check if within x & y boundary, then For Loop to check for overlap
-            if (0 <= pos[0] < self.size and 0 <= pos[1] < self.size for pos in new_ship.ship_object.positions): 
-                if (self.map[pos[0]][pos[1]] == EMPTY_SYMBOL for pos in new_ship.ship_object.positions):
+            if all(0 <= pos[0] < self.size and 0 <= pos[1] < self.size for pos in new_ship.ship_object.positions): 
+                if all(self.map[pos[0]][pos[1]] == EMPTY_SYMBOL for pos in new_ship.ship_object.positions):
                     for posi in new_ship.ship_object.positions:
-                        self.map[pos[0]][pos[1]] = SHIP_SYMBOL
+                        self.map[posi[0]][posi[1]] = SHIP_SYMBOL
                     self.ships.append(new_ship)
                     break
+
 
     def hit(self, x, y):
         if 0 <= x < self.size and 0 <= y < self.size:
