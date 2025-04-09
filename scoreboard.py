@@ -3,6 +3,7 @@ from board import Board
 import random
 
 class Scoreboard:
+
     def __init__(self):
         self.ships = {"Player 1": 5, "Player 2": 5}
         self.current_turn = "Player 1"
